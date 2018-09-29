@@ -1,5 +1,7 @@
 var arrayProductos = [];
 var ventasTotales=0;
+var nVentas=0;
+var PromedioV=ventasTotales/nVentas;
 
 do {
     var opcion = prompt("Ingrese una opcion:\n 1. Añadir producto\n 2. Modificar Stock \n 3.Registrar venta y modificar Stock \n 4. Mostrar promedio de ventas realizadas \n 5. Mostrar productos con stock 0 \n 6 Salir");
@@ -18,18 +20,18 @@ do {
             modifyStock(id);
             break;
         case "3":
-            let codigo = prompt("ingrese codigo del producto");
+            codigo = prompt("ingrese codigo del producto");
             let cantidad = parseInt(prompt("ingrese codigo del producto"),10);
             venta(codigo,cantidad);
             break;
         case "4":
-
+            console.log(PromedioV);
             break;
         case "5":
             Stock0();
             break;
         default:
-            console.log("Dato no valido");
+            alert("Dato no valido");
             break;
     }
 }
@@ -83,6 +85,7 @@ function venta(codigo,cantidad){
         if(e.codigo == codigo){
            e.stock -= cantidad;
            ventasTotales+= e.precio_venta*cantidad;
+           nVentas++;
            find=true;
         }
     });
