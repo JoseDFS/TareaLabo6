@@ -10,8 +10,8 @@ do {
             let tipo = prompt("ingrese tipo del producto");
             let precio_compra = prompt("ingrese precio de compra del producto");
             let precio_venta = prompt("ingrese precio de venta del producto");
-            //let stock = prompt("ingrese stock del producto");
-            addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock = 0);
+            let stock = prompt("ingrese stock del producto");
+            addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock);
             break;
         case "2":
             let id = prompt("Ingrese el id de producto a modificar");
@@ -29,15 +29,15 @@ do {
             Stock0();
             break;
         default:
-            console.log("ingrese dato correcto");
+            console.log("Dato no valido");
             break;
     }
 }
 while (opcion != 6);
-alert("ADIOS, QUE TENGA UN LINDO DIA");
+alert("Ha salido del programa");
 
 
-function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock) {
+function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock = 0) {
     var find=false;
     arrayProductos.forEach(e => {
         if(e.codigo == codigo)
@@ -49,9 +49,6 @@ function addproducto(codigo, descrip, tipo, precio_compra, precio_venta, stock) 
         return console.log('Ese producto ya esta registrado');
     
 }
-
-addproducto(2020, "gomitas ricas", "dulces", 10, 15, 6);
-addproducto(2021, "chocobitos culeros", "dulces", 20, 35, 10);
 
 function modifyStock(id){
     var newStock = parseInt(prompt('Inserte el nuevo Stock'),10);
