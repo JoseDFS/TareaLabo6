@@ -20,9 +20,9 @@ do {
             modifyStock(id);
             break;
         case "3":
-            codigo = prompt("ingrese codigo del producto");
-            let cantidad = parseInt(prompt("ingrese codigo del producto"),10);
-            venta(codigo,cantidad);
+            let codigoVenta = prompt("ingrese codigo del producto");
+            let cantidad = parseInt(prompt("ingrese la cantidad"),10);
+            venta(codigoVenta,cantidad);
             break;
         case "4":
             console.log(PromedioV);
@@ -62,9 +62,9 @@ function modifyStock(id){
         }
     });
     if(find)
-        return console.log('Se modifico el stock del producto seleccionado');
+        console.log('Se modifico el stock del producto seleccionado');
     else
-        return console.log('No se encontro el producto');
+        console.log('No se encontro el producto');
     
 }
 function Stock0(){
@@ -90,8 +90,8 @@ function venta(codigo,cantidad){
         }
     });
     if(find)
-        return console.log('Se ha realizado la venta');
+        console.log('Se ha realizado la venta');
     else
-        return console.log('No se encontro el producto');
+        console.log('No se encontro el producto');
     
 }
