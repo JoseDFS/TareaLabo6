@@ -83,11 +83,15 @@ function venta(codigo,cantidad){
     var find=false;
     arrayProductos.forEach(e => {
         if(e.codigo == codigo){
-           e.stock -= cantidad;
-           ventasTotales+= e.precio_venta*cantidad;
-           nVentas++;
-           find=true;
+            if(cantidad<=e.stock){
+                e.stock -= cantidad;
+                ventasTotales+= e.precio_venta*cantidad;
+                nVentas++;
+                find=true;
+            }
         }
+        else
+            console.log('insufeciente stock');
     });
     if(find)
         console.log('Se ha realizado la venta');
